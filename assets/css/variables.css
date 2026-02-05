@@ -1,0 +1,32 @@
+:root {
+  /* Colors */
+  --primary-color: #0056b3; /* Professional Blue */
+  --secondary-color: #004494; /* Darker Blue for hover */
+  --accent-color: #f7c948; /* Subtle yellow/gold for attention (optional) or just white/grey */
+  --text-dark: #333333;
+  --text-light: #666666;
+  --white: #ffffff;
+  --light-grey: #f8f9fa;
+  --border-color: #e0e0e0;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --h1-size: 3rem;
+  --h2-size: 2.25rem;
+  --h3-size: 1.5rem;
+  --body-size: 1rem;
+
+  /* Spacing */
+  --container-width: 1200px;
+  --section-padding: 4rem 1rem;
+  --border-radius: 8px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --h1-size: 2.25rem;
+    --h2-size: 1.75rem;
+    --section-padding: 3rem 1rem;
+  }
+}
