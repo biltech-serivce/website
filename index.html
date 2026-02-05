@@ -1,177 +1,322 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biltech Gebäudeservice - Ihr Hausmeister in Pfungstadt</title>
-    <meta name="description" content="Professioneller Hausmeisterservice, Gebäudereinigung, Gartenpflege & Winterdienst in Pfungstadt und Umgebung. Zuverlässig & Gründlich.">
-    
+    <title>Biltech Gebäudeservice | Ihr Partner für Haus & Garten in Pfungstadt</title>
+    <meta name="description"
+        content="Professioneller Hausmeisterservice, Gebäudereinigung, Gartenpflege & Winterdienst in Pfungstadt und Umgebung. Zuverlässig, gründlich und persönlich.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <!-- Top Bar -->
-    <div class="header-top">
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header class="header">
         <div class="container">
-            <span>Parkstr. 47, 64319 Pfungstadt</span>
-            <div>
-                <a href="tel:+4917680747010">📞 +49 176 80747010</a>
-                <span style="margin: 0 10px;">|</span>
-                <a href="mailto:info@biltech-service.de">✉️ info@biltech-service.de</a>
-            </div>
-        </div>
-    </div>
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo.png" alt="Biltech Gebäudeservice Logo">
+                </a>
 
-    <!-- Navigation -->
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo-text">
-                <img src="assets/images/logo.png" alt="Biltech Logo">
-                <span>BILTECH</span>
-            </a>
-            
-            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
-            
-            <nav class="nav-links" id="navLinks">
-                <a href="#home">Start</a>
-                <a href="#services">Leistungen</a>
-                <a href="#about">Über uns</a>
-                <a href="#contact">Kontakt</a>
-                <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Angebot anfordern</a>
-            </nav>
+                <nav class="nav">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#home">Start</a></li>
+                        <li><a href="#services">Leistungen</a></li>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+
+                    <a href="tel:+4917680747010" class="btn btn-primary nav-cta">
+                        Jetzt anrufen
+                    </a>
+
+                    <div class="mobile-toggle" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
     <section id="home" class="hero">
         <div class="container">
-            <h1>Ihr Partner für Haus & Garten</h1>
-            <p>Professioneller Hausmeisterservice, Gebäudereinigung und mehr in Pfungstadt.</p>
-            <a href="#contact" class="btn">Kostenloses Angebot anfordern</a>
+            <div class="hero-content">
+                <img src="assets/images/logo.png" alt="Biltech" class="hero-logo">
+
+                <h1 class="hero-title">
+                    Ihr Partner für<br>
+                    <span>Haus & Garten</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Professioneller Gebäudeservice in Pfungstadt und Umgebung.
+                    Zuverlässig, gründlich und persönlich – seit 2025.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        Kostenloses Angebot
+                    </a>
+                    <a href="tel:+4917680747010" class="btn btn-outline">
+                        📞 +49 176 80747010
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Kundenzufriedenheit</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">24h</div>
+                        <div class="stat-label">Schnelle Reaktion</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">Lokal</div>
+                        <div class="stat-label">Aus Pfungstadt</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Unsere Leistungen</h2>
-            <p class="section-subtitle">Wir kümmern uns um Ihre Immobilie, damit Sie sich auf das Wesentliche konzentrieren können.</p>
-            
+            <div class="section-header">
+                <span class="section-label">Was wir bieten</span>
+                <h2 class="section-title">Unsere Leistungen</h2>
+                <p class="section-subtitle">
+                    Wir kümmern uns um Ihre Immobilie, damit Sie sich auf das Wesentliche konzentrieren können.
+                </p>
+            </div>
+
             <div class="services-grid">
                 <div class="service-card">
                     <span class="service-icon">🏗️</span>
-                    <h3>Hausmeisterservice</h3>
-                    <p>Regelmäßige Kontrollen, kleine Reparaturen und Instandhaltung Ihrer Immobilie.</p>
+                    <h3 class="service-title">Hausmeisterservice</h3>
+                    <p class="service-description">
+                        Regelmäßige Kontrollen, kleine Reparaturen und Instandhaltung Ihrer Immobilie. Wir sind Ihr
+                        verlässlicher Partner für alle anfallenden Arbeiten rund ums Haus.
+                    </p>
                 </div>
+
                 <div class="service-card">
                     <span class="service-icon">🧹</span>
-                    <h3>Gebäudereinigung</h3>
-                    <p>Gründliche Reinigung von Treppenhäusern, Büros und Gemeinschaftsflächen.</p>
+                    <h3 class="service-title">Gebäudereinigung</h3>
+                    <p class="service-description">
+                        Professionelle Reinigung von Treppenhäusern, Büroflächen und Gemeinschaftsbereichen. Sauberkeit
+                        und Hygiene nach höchsten Standards.
+                    </p>
                 </div>
+
                 <div class="service-card">
                     <span class="service-icon">🌿</span>
-                    <h3>Gartenpflege</h3>
-                    <p>Rasenmähen, Hecken schneiden und allgemeine Pflege Ihrer Grünanlagen.</p>
+                    <h3 class="service-title">Gartenpflege</h3>
+                    <p class="service-description">
+                        Rasenmähen, Hecken schneiden, Unkrautentfernung und allgemeine Pflege Ihrer Grünanlagen. Ihr
+                        Garten in besten Händen.
+                    </p>
                 </div>
+
                 <div class="service-card">
                     <span class="service-icon">❄️</span>
-                    <h3>Winterdienst</h3>
-                    <p>Zuverlässiges Räumen und Streuen in der kalten Jahreszeit gemäß Satzung.</p>
+                    <h3 class="service-title">Winterdienst</h3>
+                    <p class="service-description">
+                        Zuverlässiges Räumen und Streuen gemäß Räum- und Streupflicht. Sicherheit für Ihre Wege in der
+                        kalten Jahreszeit.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Warum Biltech?</h2>
             <div class="about-content">
-                <p>Als lokales Unternehmen aus Pfungstadt stehen wir für <strong>Qualität, Zuverlässigkeit und persönliche Betreuung</strong>. Wir verstehen, dass jede Immobilie einzigartig ist und bieten Ihnen maßgeschneiderte Lösungen für Ihre Anforderungen.</p>
-                <br>
-                <p>Egal ob Privathaushalt oder Gewerbeobjekt – wir sorgen dafür, dass alles gepflegt aussieht und funktioniert.</p>
+                <div class="about-text">
+                    <span class="section-label">Über uns</span>
+                    <h2>Warum Biltech?</h2>
+                    <p>
+                        Als lokales Einzelunternehmen aus Pfungstadt stehen wir für Qualität, Zuverlässigkeit und
+                        persönliche Betreuung. Bei uns sprechen Sie direkt mit dem Inhaber – keine Callcenter, keine
+                        Wartezeiten.
+                    </p>
+                    <p>
+                        Wir verstehen, dass jede Immobilie einzigartig ist und bieten Ihnen maßgeschneiderte Lösungen
+                        für Ihre individuellen Anforderungen.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h4>Persönlicher Ansprechpartner</h4>
+                                <p>Direkter Kontakt zum Inhaber</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h4>Faire Preise</h4>
+                                <p>Transparente Kostenvoranschläge</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h4>Flexibel & Schnell</h4>
+                                <p>Kurzfristige Termine möglich</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/logo.png" alt="Biltech Gebäudeservice"
+                            style="padding: 3rem; background: #111;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Kontaktieren Sie uns</h2>
-            <p class="section-subtitle">Gerne erstellen wir Ihnen ein unverbindliches Angebot.</p>
-            
-            <div class="contact-container">
+            <div class="section-header">
+                <span class="section-label">Kontakt</span>
+                <h2 class="section-title">Jetzt anfragen</h2>
+                <p class="section-subtitle">
+                    Wir freuen uns auf Ihre Nachricht und erstellen Ihnen gerne ein unverbindliches Angebot.
+                </p>
+            </div>
+
+            <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Biltech Gebäudeservice</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <strong>Anschrift</strong><br>
-                            Parkstr. 47<br>
-                            64319 Pfungstadt
+                    <p>Ihr zuverlässiger Partner für Haus & Garten in Pfungstadt und Umgebung.</p>
+
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <div class="contact-item-content">
+                                <h4>Adresse</h4>
+                                <p>Parkstr. 47<br>64319 Pfungstadt</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <strong>Telefon</strong><br>
-                            <a href="tel:+4917680747010">+49 176 80747010</a><br>
-                            <a href="tel:+4961579523994">+49 6157 9523994</a>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📞</div>
+                            <div class="contact-item-content">
+                                <h4>Telefon</h4>
+                                <p>
+                                    <a href="tel:+4917680747010">+49 176 80747010</a><br>
+                                    <a href="tel:+4961579523994">+49 6157 9523994</a>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <strong>E-Mail</strong><br>
-                            <a href="mailto:info@biltech-service.de">info@biltech-service.de</a>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">✉️</div>
+                            <div class="contact-item-content">
+                                <h4>E-Mail</h4>
+                                <a href="mailto:info@biltech-service.de">info@biltech-service.de</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <!-- Simple form linking to mailto for setup phase -->
-                    <form action="mailto:info@biltech-service.de" method="post" enctype="text/plain">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Ihr Name" required>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" action="mailto:info@biltech-service.de" method="post"
+                        enctype="text/plain">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Telefonnummer (optional)">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" name="message" placeholder="Wie können wir Ihnen helfen?"
+                                required></textarea>
                         </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Wie können wir Ihnen helfen?" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Nachricht senden</button>
-                        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #666;">*Dies öffnet Ihr E-Mail-Programm.</p>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Nachricht senden
+                        </button>
+                        <p
+                            style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center;">
+                            *Dies öffnet Ihr E-Mail-Programm
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-links">
-                <a href="impressum.html">Impressum</a>
-                <a href="datenschutz.html">Datenschutz</a>
+            <div class="footer-inner">
+                <a href="#" class="footer-logo">
+                    <img src="assets/images/logo.png" alt="Biltech">
+                </a>
+
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
             </div>
-            <p class="copyright">&copy; 2025 Biltech Gebäudeservice. Alle Rechte vorbehalten.</p>
+
+            <p class="footer-copyright">
+                © 2025 Biltech Gebäudeservice. Alle Rechte vorbehalten.
+            </p>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

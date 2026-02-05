@@ -4,60 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - Biltech Gebäudeservice</title>
+    <title>Impressum | Biltech Gebäudeservice</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .legal-page {
+            padding: calc(100px + var(--space-xl)) var(--space-md) var(--space-3xl);
+            min-height: 100vh;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-content h1 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .legal-content h2 {
+            font-size: var(--text-xl);
+            margin: var(--space-xl) 0 var(--space-md);
+            color: var(--accent-highlight);
+        }
+
+        .legal-content h3 {
+            font-size: var(--text-lg);
+            margin: var(--space-lg) 0 var(--space-sm);
+        }
+
+        .legal-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--text-muted);
+            margin-bottom: var(--space-lg);
+            font-size: var(--text-sm);
+        }
+
+        .back-link:hover {
+            color: var(--accent-highlight);
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="main-header">
+    <header class="header">
         <div class="container">
-            <a href="index.html" class="logo-text">Zurück zur Startseite</a>
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.png" alt="Biltech">
+                </a>
+            </div>
         </div>
     </header>
 
-    <div class="container" style="padding: 4rem 1rem;">
-        <h1>Impressum</h1>
+    <main class="legal-page">
+        <div class="legal-content">
+            <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-        <h3>Angaben gemäß § 5 TMG</h3>
-        <p>
-            Biltech Gebäudeservice<br>
-            Osman Bilgin<br>
-            Parkstr. 47<br>
-            64319 Pfungstadt
-        </p>
+            <h1>Impressum</h1>
 
-        <h3>Kontakt</h3>
-        <p>
-            Telefon: +49 176 80747010<br>
-            E-Mail: info@biltech-service.de
-        </p>
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p>
+                <strong>Biltech Gebäudeservice</strong><br>
+                Osman Bilgin<br>
+                Parkstr. 47<br>
+                64319 Pfungstadt
+            </p>
 
-        <h3>Umsatzsteuer-ID</h3>
-        <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-            DE457949042
-        </p>
+            <h2>Kontakt</h2>
+            <p>
+                Telefon: +49 176 80747010<br>
+                E-Mail: info@biltech-service.de
+            </p>
 
-        <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
-        <p>
-            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-            Verbraucherschlichtungsstelle teilzunehmen.
-        </p>
+            <h2>Umsatzsteuer-ID</h2>
+            <p>
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                <strong>DE457949042</strong>
+            </p>
 
-        <h3>Haftung für Inhalte</h3>
-        <p>
-            Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen
-            Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
-            übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf
-            eine rechtswidrige Tätigkeit hinweisen.
-        </p>
-    </div>
+            <h2>Verbraucherstreitbeilegung</h2>
+            <p>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
 
-    <footer>
+            <h2>Haftung für Inhalte</h2>
+            <p>
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
+                allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+                verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
+                forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
         <div class="container">
-            <p class="copyright">&copy; 2025 Biltech Gebäudeservice.</p>
+            <p class="footer-copyright">
+                © 2025 Biltech Gebäudeservice. Alle Rechte vorbehalten.
+            </p>
         </div>
     </footer>
 
