@@ -1,31 +1,47 @@
 :root {
-  /* Dark Theme Colors - Premium Look */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #1a1a1a;
-  --bg-glass: rgba(255, 255, 255, 0.03);
+  /* ============================================
+     BLACK / GOLD / TURQUOISE THEME
+     ============================================ */
 
-  /* Accent Colors */
-  --accent-primary: #ffffff;
-  --accent-secondary: #e0e0e0;
-  --accent-highlight: #4ade80;
-  /* Subtle green for CTAs */
-  --accent-highlight-hover: #22c55e;
+  /* Background Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-glass: rgba(255, 255, 255, 0.02);
+
+  /* Primary Colors */
+  --gold: #d4af37;
+  --gold-light: #e8c547;
+  --gold-dark: #b8962f;
+  --turquoise: #40e0d0;
+  --turquoise-light: #5ce6d8;
+  --turquoise-dark: #2eb8aa;
 
   /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-secondary: rgba(255, 255, 255, 0.75);
   --text-muted: rgba(255, 255, 255, 0.5);
 
+  /* Accent Colors */
+  --accent-primary: var(--gold);
+  --accent-secondary: var(--turquoise);
+  --accent-highlight: var(--gold);
+  --accent-highlight-hover: var(--gold-light);
+
   /* Borders & Effects */
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(255, 255, 255, 0.2);
-  --glow: 0 0 40px rgba(74, 222, 128, 0.15);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --border-subtle: rgba(212, 175, 55, 0.15);
+  --border-hover: rgba(212, 175, 55, 0.4);
+  --glow-gold: 0 0 30px rgba(212, 175, 55, 0.3);
+  --glow-turquoise: 0 0 30px rgba(64, 224, 208, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, var(--gold), var(--gold-light));
+  --gradient-turquoise: linear-gradient(135deg, var(--turquoise), var(--turquoise-light));
+  --gradient-premium: linear-gradient(135deg, var(--gold) 0%, var(--turquoise) 100%);
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Inter', sans-serif;
 
   /* Font Sizes - Fluid */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -51,9 +67,10 @@
   --container-max: 1200px;
   --border-radius: 12px;
   --border-radius-lg: 24px;
+  --border-radius-full: 9999px;
 
   /* Transitions */
   --transition-fast: 0.15s ease;
-  --transition-base: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
