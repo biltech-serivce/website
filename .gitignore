@@ -1,0 +1,6 @@
+.DS_Store
+# interne Projektnotizen, nicht ins öffentliche Repo
+CONTEXT.md
+PRODUCT.md
+DESIGN.md
+.impeccable/

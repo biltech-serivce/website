@@ -1,0 +1,6 @@
+# GitHub Pages: interne Projektdateien nicht veröffentlichen
+exclude:
+  - CONTEXT.md
+  - PRODUCT.md
+  - DESIGN.md
+  - _config.yml
