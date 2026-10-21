@@ -54,49 +54,104 @@ document.querySelectorAll('[data-whatsapp]').forEach((link) => {
     });
 })();
 
-// Service register: one active row, its photo in the sticky frame (desktop)
-// or inline inside the row (mobile)
-(function register() {
-    const rows = document.querySelectorAll('.register-row');
-    const image = document.getElementById('registerImage');
-    if (!rows.length || !image) return;
+// Service story: the chapter in the middle of the viewport is active;
+// desktop shows its picture in the sticky stage, mobile in the chip bar
+(function story() {
+    const root = document.getElementById('story');
+    if (!root) return;
 
-    rows.forEach((row) => {
-        const detail = row.querySelector('.register-detail');
-        const inner = document.createElement('div');
-        inner.className = 'register-detail-inner';
-        const figure = document.createElement('figure');
-        figure.className = 'photo photo-portrait';
-        figure.innerHTML = `<img src="${row.dataset.image}" alt="${row.dataset.alt}" loading="lazy" style="object-position: ${row.dataset.position}"><figcaption class="ai-note">KI-Motiv</figcaption>`;
-        inner.appendChild(figure);
-        while (detail.firstChild) inner.appendChild(detail.firstChild);
-        detail.appendChild(inner);
-    });
+    const chapters = [...root.querySelectorAll('.chapter')];
+    const images = [...root.querySelectorAll('.story-img')];
+    const links = [...root.querySelectorAll('.story-rail a')];
+    const railList = root.querySelector('.story-rail ol');
+    const counter = root.querySelector('.story-current');
+    const chips = window.matchMedia('(max-width: 900px)');
+    let current = -1;
 
-    function activate(row) {
-        rows.forEach((r) => {
-            const on = r === row;
-            r.classList.toggle('is-active', on);
-            r.querySelector('.register-trigger').setAttribute('aria-expanded', String(on));
+    function activate(index) {
+        if (index === current) return;
+        current = index;
+        chapters.forEach((c, i) => c.classList.toggle('is-active', i === index));
+        // every picture up to the current one stays shown, so the next one wipes over it
+        images.forEach((img, i) => {
+            img.style.zIndex = i;
+            img.classList.toggle('is-shown', i <= index);
         });
-        if (image.getAttribute('src') === row.dataset.image) return;
-        image.classList.add('is-swapping');
-        image.src = row.dataset.image;
-        image.alt = row.dataset.alt;
-        image.style.objectPosition = row.dataset.position;
-        const reveal = () => requestAnimationFrame(() => image.classList.remove('is-swapping'));
-        if (image.complete) reveal();
-        else image.addEventListener('load', reveal, { once: true });
+        links.forEach((a, i) => {
+            const on = i === index;
+            a.classList.toggle('is-active', on);
+            if (on) a.setAttribute('aria-current', 'step');
+            else a.removeAttribute('aria-current');
+        });
+        if (counter) {
+            counter.textContent = String(index + 1).padStart(2, '0');
+            counter.classList.remove('is-ticking');
+            void counter.offsetWidth;
+            counter.classList.add('is-ticking');
+        }
+        // keep the active chip in view without moving the page
+        if (chips.matches && railList) {
+            const link = links[index];
+            const left = link.offsetLeft - (railList.clientWidth - link.offsetWidth) / 2;
+            railList.scrollTo({ left, behavior: 'smooth' });
+        }
     }
 
-    rows.forEach((row) => {
-        const trigger = row.querySelector('.register-trigger');
-        trigger.addEventListener('click', () => activate(row));
-        // Desktop: hovering previews the row, like flipping through a spec sheet
-        trigger.addEventListener('mouseenter', () => {
-            if (window.matchMedia('(hover: hover) and (min-width: 901px)').matches) activate(row);
+    const middle = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) activate(chapters.indexOf(entry.target));
         });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    chapters.forEach((c) => middle.observe(c));
+
+    // Mobile: picture and text reveal once, when the chapter scrolls in
+    const seen = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-seen');
+            seen.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -15% 0px' });
+    chapters.forEach((c) => seen.observe(c));
+
+    // Progress line: how far the reader is through the chapters
+    let ticking = false;
+    function progress() {
+        ticking = false;
+        const r = root.querySelector('.story-chapters').getBoundingClientRect();
+        const mid = window.innerHeight / 2;
+        const p = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+        root.style.setProperty('--progress', p.toFixed(4));
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(progress);
+        }
+    }, { passive: true });
+    progress();
+
+    activate(0);
+})();
+
+// Reveal on scroll: headings, lists and photos fade or unmask once
+(function reveals() {
+    const items = document.querySelectorAll('.reveal, .stagger, .reveal-img');
+    document.querySelectorAll('.stagger').forEach((list) => {
+        [...list.children].forEach((child, i) => child.style.setProperty('--i', i));
     });
+    if (!('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('is-in'));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    items.forEach((el) => io.observe(el));
 })();
 
 // Contact form: compose a mailto with a readable body
@@ -145,8 +200,8 @@ document.querySelectorAll('[data-whatsapp]').forEach((link) => {
 
     const base = 'assets/video/hero/';
     const clips = {
-        desktop: ['luisenplatz-16x9', 'mathildenhoehe-16x9', 'kunde-16x9', 'umzug-16x9'],
-        mobile: ['luisenplatz-9x16', 'mathildenhoehe-9x16', 'kunde-9x16', 'umzug-9x16']
+        desktop: ['luisenplatz-16x9', 'mathildenhoehe-16x9', 'kunde-16x9'],
+        mobile: ['luisenplatz-9x16', 'mathildenhoehe-9x16', 'kunde-9x16']
     };
     const FADE = 1.2; // seconds, matches CSS transition
     const portrait = window.matchMedia('(orientation: portrait) and (max-width: 1024px)');
