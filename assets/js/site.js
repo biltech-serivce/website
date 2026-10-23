@@ -32,7 +32,8 @@ document.querySelectorAll('[data-whatsapp]').forEach((link) => {
     }
 
     // Current section in the navigation
-    const navLinks = [...header.querySelectorAll('.primary-nav ul a')];
+    // only in-page anchors: subpages link to sections of the start page
+    const navLinks = [...header.querySelectorAll('.primary-nav ul a')].filter((a) => a.getAttribute('href').startsWith('#'));
     const sections = navLinks.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const spy = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
